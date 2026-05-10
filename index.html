@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retro Player</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="gameboy">
+
+  <!-- LIGHT -->
+  <div class="music-light" id="musicLight"></div>
+
+  <!-- TITLE -->
+  <div class="title">MY PERFECT GIRL</div>
+
+  <!-- SCREEN -->
+  <div class="screen">
+
+    <!-- ================= CHAT ================= -->
+    <div class="slide active-slide" id="chatScreen">
+
+      <div class="chat-header">
+
+        <div class="profile">
+          <div class="profile-pic">💙</div>
+          <div class="profile-name">bebeyyyy</div>
+        </div>
+
+        <div class="header-icons">
+          <span>📞</span>
+          <span>📹</span>
+          <span>⋮</span>
+        </div>
+
+      </div>
+
+      <div class="chat-box" id="chatBox">
+        <div class="msg bot">haieee sayanggg</div>
+      </div>
+
+      <div class="input-area">
+        <input type="text" id="chatInput" placeholder="Ketik pesan...">
+        <button id="sendBtn">➤</button>
+      </div>
+
+    </div>
+
+    <!-- ================= GALLERY ================= -->
+    <div class="slide" id="galleryScreen">
+
+      <div class="tabs">
+        <button class="tab active-tab" id="fotoTab">FOTO</button>
+        <button class="tab" id="videoTab">VIDEO</button>
+      </div>
+
+      <div class="gallery active-gallery" id="fotoGallery">
+
+        <div class="card" onclick="showMedia(0)">
+          <div class="card-cover">
+            <span class="tag">CUTE😼</span>
+            <img src="images/foto1.jpg">
+          </div>
+        </div>
+
+        <div class="card" onclick="showMedia(1)">
+          <div class="card-cover">
+            <span class="tag">FAV💙</span>
+            <img src="images/foto2.jpg">
+          </div>
+        </div>
+
+        <div class="card" onclick="showMedia(2)">
+          <div class="card-cover">
+            <span class="tag">GEMAS😻</span>
+            <img src="images/foto3.jpg">
+          </div>
+        </div>
+
+        <div class="card" onclick="showMedia(3)">
+          <div class="card-cover">
+            <span class="tag">CAKEP🤤</span>
+            <img src="images/foto4.jpg">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="gallery" id="videoGallery">
+
+        <div class="card" onclick="showMedia(4)">
+          <div class="card-cover">
+            <span class="tag">COOL🥶</span>
+            <video muted poster="images/thumb1.png">
+              <source src="video/video1.mp4">
+            </video>
+          </div>
+        </div>
+
+        <div class="card" onclick="showMedia(5)">
+          <div class="card-cover">
+            <span class="tag">BOKEM😸</span>
+            <video muted poster="images/thumb2.png">
+              <source src="video/video2.mp4">
+            </video>
+          </div>
+        </div>
+
+        <div class="card" onclick="showMedia(6)">
+          <div class="card-cover">
+            <span class="tag">GOTHIC🕷️</span>
+            <video muted poster="images/thumb3.png">
+              <source src="video/video3.mp4">
+            </video>
+          </div>
+        </div>
+
+        <div class="card" onclick="showMedia(7)">
+          <div class="card-cover">
+            <span class="tag">FAV💙</span>
+            <video muted poster="images/thumb4.png">
+              <source src="video/video4.mp4">
+            </video>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ================= MUSIC ================= -->
+    <div class="slide" id="musicScreen">
+
+      <div class="music-list">
+
+        <div class="music-card active-song">
+          <img class="album-cover" src="images/cover1.jpg">
+          <div class="song-info">
+            <h3>Bumi dan Bulan</h3>
+            <p>HIVI!</p>
+          </div>
+        </div>
+
+        <div class="music-card">
+          <img class="album-cover" src="images/cover2.jpg">
+          <div class="song-info">
+            <h3>Ditto</h3>
+            <p>NewJeans</p>
+          </div>
+        </div>
+
+        <div class="music-card">
+          <img class="album-cover" src="images/cover3.jpeg">
+          <div class="song-info">
+            <h3>Magnolia</h3>
+            <p>Laufey</p>
+          </div>
+        </div>
+
+        <div class="music-card">
+          <img class="album-cover" src="images/cover4.jpeg">
+          <div class="song-info">
+            <h3>像晴天像雨天</h3>
+            <p>silence wang</p>
+          </div>
+        </div>
+
+        <div class="music-card">
+          <img class="album-cover" src="images/cover5.jpg">
+          <div class="song-info">
+            <h3>i'd like to watch you sleeping</h3>
+            <p>sal priadi</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- MENU -->
+  <div class="menu">
+    <button class="menu-btn active-menu" id="chatMenu">💬</button>
+    <button class="menu-btn" id="galleryMenu">🖼</button>
+    <button class="menu-btn" id="musicMenu">🎵</button>
+  </div>
+
+  <!-- PLAYER -->
+  <div class="player-controls">
+    <button id="prevMusic">⏮</button>
+    <button class="play-btn" id="playPause">▶</button>
+    <button id="nextMusic">⏭</button>
+  </div>
+
+  <!-- VOLUME -->
+  <div class="volume-area">
+    <span>🔊</span>
+    <input type="range" min="0" max="100" value="100" id="volumeSlider">
+  </div>
+
+</div>
+
+<!-- POPUP VIEWER -->
+<div class="viewer" id="viewer">
+  <div class="viewer-box">
+
+    <button class="close-btn" onclick="closeViewer()">✕</button>
+    <button class="nav prev" onclick="prevMedia()">‹</button>
+
+    <div id="viewerContent"></div>
+
+    <button class="nav next" onclick="nextMedia()">›</button>
+
+  </div>
+</div>
+
+<audio id="audioPlayer"></audio>
+
+<script src="script.js"></script>
+
+</body>
+</html>
